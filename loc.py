@@ -79,8 +79,8 @@ def log_loc_to_file(loc, log_file_path):
 
 def send_email(subject, body, to_email):
     # Your email configuration
-    from_email = "human.ai225@gmail.com"
-    password = "cvhl zbwz lwxw ukdo"
+    from_email = "example@example.com"
+    password = ""
 
     # Create the email message
     msg = MIMEMultipart()
@@ -92,7 +92,7 @@ def send_email(subject, body, to_email):
     msg.attach(MIMEText(body, 'plain'))
 
     # Set up the server
-    server = smtplib.SMTP('smtp.gmail.com', 587)  # Change smtp.example.com and port if needed
+    server = smtplib.SMTP('smtp.example.com', 587)  # Change smtp.example.com and port if needed
     server.starttls()
     
     try:
@@ -113,9 +113,9 @@ def send_email(subject, body, to_email):
 
 def main():
     # Specify the directory containing the C and Python files
-    directory = '/Users/sukanto/Desktop/CS50'
+    directory = 'path/to/directory'
     # Specify the log file path
-    log_file_path = '/Users/sukanto/lines_of_code/log_file.txt'
+    log_file_path = 'path/to/logfile'
     
     # Count lines of code excluding comments and empty lines
     total_loc = count_lines_of_code(directory)
@@ -124,7 +124,7 @@ def main():
     email_body = f'Total lines of code in {directory}: {total_loc}'
     
     # Send the email
-    send_email('LOC Report', email_body, 'human.ai225@gmail.com')
+    send_email('LOC Report', email_body, 'example@example.com')
     
     # Log the LOC to a text file
     log_loc_to_file(total_loc, log_file_path)
